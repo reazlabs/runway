@@ -9,15 +9,16 @@ function App() {
 
   useEffect(()=>{
     fetchpassport();
-  })
+  },[])
 
   async function fetchpassport() {
-    const {data,error} = await supabase
-      .from("passports")
-      .select("*")
-      .order("id",{ascending:false})
-      if(!error) setPassport(data)
-  }
+  const { data, error } = await supabase
+    .from("passports")
+    .select("*")
+    .order("sl", { ascending: false }) 
+
+  if (!error) setPassport(data)
+}
   async function addPassport(e) {
     e.preventDefault();
     const {error} = await supabase
@@ -55,20 +56,25 @@ function App() {
         />
         <button type='submit'>add</button>
       </form>
-      <table>
+      <table className='w-full text-xs border-collapse'>
         <thead>
-        <tr>
-          <th>SL</th>
-          <th>name</th>
-          <th>Passport Number</th>
+        <tr className='bg-slate-50 border-b-2 border-slate-200'>
+          {["SL","Name","Passport Number","Received"].map((label) => {
+          return <th
+            className='px-3 py-2.5 font-bold text-slate-500 text-[10px] uppercase tracking-widest whitespace-nowrap'
+          key={label}>{label}</th>;
+        })}
         </tr>
         </thead>
         <tbody>
           {passports.map(p =>(
-            <tr key={p.id}>
-              <td>{p.sl}</td>
-              <td>{p.name}</td>
-              <td>{p.passport_number}</td>
+            <tr 
+              className='row-hover border-b border-slate-100 bg-white'
+            key={p.id}>
+              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.sl}</td>
+              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.name}</td>
+              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.passport_number}</td>
+              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.received_date || "-"}</td>
             </tr>
           ))}
         </tbody>
