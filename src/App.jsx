@@ -56,25 +56,25 @@ function App() {
         />
         <button type='submit'>add</button>
       </form>
-      <table className='w-full text-xs border-collapse'>
-        <thead>
-        <tr className='bg-slate-50 border-b-2 border-slate-200'>
+      <table className='min-w-full divide-y divide-gray-200'>
+        <thead className='bg-gray-50'>
+        <tr>
           {["SL","Name","Passport Number","Received"].map((label) => {
           return <th
-            className='px-3 py-2.5 font-bold text-slate-500 text-[10px] uppercase tracking-widest whitespace-nowrap'
+            className='px-6 py-3.5 text-left text-sm font-semibold text-gray-900'
           key={label}>{label}</th>;
         })}
         </tr>
         </thead>
-        <tbody>
+        <tbody className='divide-y divide-gray-200 bg-white'>
           {passports.map(p =>(
             <tr 
-              className='row-hover border-b border-slate-100 bg-white'
+              className=''
             key={p.id}>
-              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.sl}</td>
-              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.name}</td>
-              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.passport_number}</td>
-              <td className='px-3 py-2.5 mono text-[10px] text-slate-400'>{p.received_date || "-"}</td>
+              <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm font-medium text-gray-900'>{p.sl}</td>
+              <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.name}</td>
+              <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.passport_number}</td>
+              <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.received_date || "-"}</td>
             </tr>
           ))}
         </tbody>
