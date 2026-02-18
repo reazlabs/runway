@@ -6,7 +6,7 @@ import PassportManager from './sample code.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PassportManager />
-    {/* <App /> */}
+    {/* <PassportManager /> */}
+    <App />
   </StrictMode>,
 )
