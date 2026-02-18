@@ -39,24 +39,28 @@ function App() {
       }
   }
   return (
-    <>
-      <h1 className='text-3xl bg-gray-950 text-white'>Runway passport Management</h1>
-      <form onSubmit={addPassport}>
+    <div className='p-10'>
+      <h1 className='text-3xl bg-gray-950 text-white p-1 sticky'>Runway passport Management</h1>
+      <form 
+      className='p-5 gap-3'
+      onSubmit={addPassport}>
         <input
           placeholder='Name'
           value={name}
           onChange={(e)=>setName(e.target.value)}
+          className='p-2'
           required
         />
         <input
           placeholder='passport number'
           value={passportNumber}
           onChange={(e)=>setPassportNumber(e.target.value)}
+          className='p-2'
           required
         />
-        <button type='submit'>add</button>
+        <button type='submit' className='p-2 bg-black text-white'>add</button>
       </form>
-      <table className='min-w-full divide-y divide-gray-200'>
+      <table className='min-w-full divide-y divide-gray-200 p-10'>
         <thead className='bg-gray-50'>
         <tr>
           {["SL","Name","Passport Number","Received"].map((label) => {
@@ -79,7 +83,7 @@ function App() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   )
 }
 
