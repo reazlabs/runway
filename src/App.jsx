@@ -5,11 +5,11 @@ import { Icon, Plus, Search } from 'lucide-react';
 
 function App() {
   const stats = [
-    {label: "Total", data: 10},
-    {label: "Total", data: 10},
-    {label: "Total", data: 10},
-    {label: "Total", data: 10},
-    {label: "Total", data: 10},
+    {label: "Total", data: 65},
+    {label: "Medical", data: 10},
+    {label: "visa", data: 20},
+    {label: "Fligh", data: 10},
+    {label: "Cancel", data: 5},
   ]
   const [name,setName]= useState("");
   const [passportNumber,setPassportNumber] = useState("");
@@ -103,7 +103,7 @@ function App() {
         <table className='min-w-full divide-y divide-gray-200 p-10'>
           <thead className='bg-gray-50'>
           <tr>
-            {["SL","Name","Passport Number","Received","Med","Mofa","PC","Finger","Visa","Manpower","Flight","Iqamah","Action"].map((label) => {
+            {["SL","Name","Passport Number","Received","Agent","Med","Mofa","PC","Finger","Visa","Manpower","Flight","Iqamah","Action"].map((label) => {
             return <th
               className='px-6 py-3.5 text-left text-sm font-semibold text-gray-900'
             key={label}>{label}</th>;
@@ -118,6 +118,7 @@ function App() {
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm font-medium text-gray-900'>{p.sl}</td>
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.name}</td>
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.passport_number}</td>
+                <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.received_date || "-"}</td>
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.received_date || "-"}</td>
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.received_date || "-"}</td>
                 <td className='whitespace-nowrap py-4 pl-6 pr-3 text-sm  text-gray-900'>{p.received_date || "-"}</td>
